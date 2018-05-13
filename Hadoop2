@@ -1,0 +1,10 @@
+In Hadoop 2.0, the JobTracker and TaskTracker no longer exist and have been replaced by three components:
+
+1) ResourceManager: a scheduler that allocates available resources in the cluster amongst the competing applications.
+
+2) NodeManager: runs on each node in the cluster and takes direction from the ResourceManager. It is responsible for managing resources available on a single node.
+
+3) ApplicationMaster: an instance of a framework-specific library, an ApplicationMaster runs a specific YARN job and is responsible for negotiating resources from the ResourceManager and also working with the NodeManager to execute and monitor Containers.
+
+The actual data processing occurs within the Containers executed by the ApplicationMaster. A Container grants rights to an application to use a specific amount of resources (memory, cpu etc.) on a specific host.
+
